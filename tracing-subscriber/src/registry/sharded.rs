@@ -471,6 +471,7 @@ impl Default for DataInner {
             name: "",
             target: "",
             level: tracing_core::Level::TRACE,
+            severity: tracing_core::Level::TRACE,
             fields: &[],
             callsite: &NULL_CALLSITE,
             kind: tracing_core::metadata::Kind::SPAN,
