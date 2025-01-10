@@ -230,6 +230,7 @@ impl<'a> AsTrace for log::Metadata<'a> {
             "log record",
             self.target(),
             self.level().as_trace(),
+            self.level().as_trace(),
             None,
             None,
             None,
@@ -280,6 +281,7 @@ macro_rules! log_cs {
         static $meta: Metadata<'static> = Metadata::new(
             "log event",
             "log",
+            $level,
             $level,
             ::core::option::Option::None,
             ::core::option::Option::None,
@@ -359,6 +361,7 @@ impl<'a> AsTrace for log::Record<'a> {
         Metadata::new(
             "log record",
             self.target(),
+            self.level().as_trace(),
             self.level().as_trace(),
             self.file(),
             self.line(),
@@ -473,6 +476,7 @@ impl<'a> NormalizeEvent<'a> for Event<'a> {
             Some(Metadata::new(
                 "log event",
                 fields.target.unwrap_or("log"),
+                *original.level(),
                 *original.level(),
                 fields.file,
                 fields.line.map(|l| l as u32),
