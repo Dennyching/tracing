@@ -1093,6 +1093,7 @@ mod test {
         name: "test",
         target: module_path!(),
         level: Level::DEBUG,
+        severity: Level::DEBUG,
         fields: &[],
         callsite: &TEST_CALLSITE,
         kind: Kind::EVENT

@@ -25,6 +25,7 @@ fn metadata_macro_api() {
         name: "test_metadata",
         target: "test_target",
         level: Level::DEBUG,
+        severity: Level::DEBUG,
         fields: &["foo", "bar", "baz"],
         callsite: &CALLSITE,
         kind: Kind::SPAN,
@@ -33,6 +34,7 @@ fn metadata_macro_api() {
         name: "test_metadata",
         target: "test_target",
         level: Level::TRACE,
+        severity: Level::TRACE,
         fields: &[],
         callsite: &CALLSITE,
         kind: Kind::EVENT,
@@ -41,6 +43,7 @@ fn metadata_macro_api() {
         name: "test_metadata",
         target: "test_target",
         level: Level::INFO,
+        severity: Level::INFO,
         fields: &[],
         callsite: &CALLSITE,
         kind: Kind::EVENT

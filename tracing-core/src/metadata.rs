@@ -65,6 +65,9 @@ pub struct Metadata<'a> {
     /// The level of verbosity of the described span.
     level: Level,
 
+    /// The severity of verbosity of the described span.
+    severity: Level,
+
     /// The name of the Rust module where the span occurred, or `None` if this
     /// could not be determined.
     module_path: Option<&'a str>,
@@ -254,6 +257,7 @@ impl<'a> Metadata<'a> {
         name: &'static str,
         target: &'a str,
         level: Level,
+        severity: Level,
         file: Option<&'a str>,
         line: Option<u32>,
         module_path: Option<&'a str>,
@@ -264,6 +268,7 @@ impl<'a> Metadata<'a> {
             name,
             target,
             level,
+            severity,
             module_path,
             file,
             line,
@@ -466,6 +471,7 @@ impl PartialEq for Metadata<'_> {
                 module_path: lhs_module_path,
                 file: lhs_file,
                 line: lhs_line,
+                severity: lhs_severity,
                 fields: lhs_fields,
                 kind: lhs_kind,
             } = self;
@@ -478,6 +484,7 @@ impl PartialEq for Metadata<'_> {
                 file: rhs_file,
                 line: rhs_line,
                 fields: rhs_fields,
+                severity: rhs_severity,
                 kind: rhs_kind,
             } = &other;
 
@@ -493,6 +500,7 @@ impl PartialEq for Metadata<'_> {
                 && lhs_line == rhs_line
                 && lhs_fields == rhs_fields
                 && lhs_kind == rhs_kind
+                && lhs_severity == rhs_severity
         }
     }
 }
